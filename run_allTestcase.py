@@ -2,8 +2,8 @@
 import unittest
 import time
 import HTMLTestRunner
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+from emailTest.mime.text import MIMEText
+from emailTest.mime.multipart import MIMEMultipart
 import smtplib
 import os
 

@@ -41,17 +41,17 @@ class Blog_login(unittest.TestCase):
         self.assertEqual(result["success"], True)
         self.log.info("------pass!---------")
 
-    # def test_login2(self):
-    #     u'''测试登录：正确账号，错误密码'''
-    #     self.log.info("------登录失败用例：start!---------")
-    #     username = "这里是抓包后获取的博客园的加密账号",
-    #     self.log.info("输入正确账号：%s"%username)
-    #     psw = "xxx",
-    #     self.log.info("输入错误密码：%s"%username)
-    #     result = self.login(username, psw)
-    #     self.log.info("获取测试结果：%s"%result)
-    #     self.assertEqual(result["success"], False)
-    #     self.log.info("------pass!---------")
+    def test_login2(self):
+        u'''测试登录：正确账号，错误密码'''
+        self.log.info("------登录失败用例：start!---------")
+        username = "这里是抓包后获取的博客园的加密账号",
+        self.log.info("输入正确账号：%s"%username)
+        psw = "xxx",
+        self.log.info("输入错误密码：%s"%username)
+        result = self.login(username, psw)
+        self.log.info("获取测试结果：%s"%result)
+        self.assertEqual(result["success"], False)
+        self.log.info("------pass!---------")
 
 
 if __name__ == "__main__":

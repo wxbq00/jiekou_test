@@ -2,9 +2,9 @@ import unittest
 import HTMLTestRunner
 import os ,time,datetime
 import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-from email.mime.image import MIMEImage
+from emailTest.mime.text import MIMEText
+from emailTest.mime.multipart import MIMEMultipart
+from emailTest.mime.image import MIMEImage
 # ----------1.跟发件相关的参数------
 smtpserver = "smtp.163.com" # 发件服务器
 port = 0 # 端口

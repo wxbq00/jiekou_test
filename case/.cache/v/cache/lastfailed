@@ -1,4 +1,6 @@
 {
   "test_01.py::Blog_login::test_login1": true,
-  "test_01.py::Blog_login::test_login2": true
+  "test_01.py::Blog_login::test_login2": true,
+  "test_02.py::Test_Kuaidi::test_tiantian": true,
+  "test_02.py::Test_Kuaidi::test_yunda": true
 }

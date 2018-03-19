@@ -26,7 +26,7 @@ class Blog_login(unittest.TestCase):
 
         res = requests.post(url, headers=header, json=json_data, verify=False)
         result1 = res.content  # 字节输出
-        self.log.info("博客园登录结果：%s"%result1)
+        #self.log.info("博客园登录结果：%s"%result1)
         return res.json()      # 返回json
 
     def test_login1(self):
@@ -35,11 +35,11 @@ class Blog_login(unittest.TestCase):
         username = "lO7tIEbw4BFPuh5IjgMT+9NibZeGt0sj7M3AWdLNTofze6yPrxVJLZEkmQL2XPwV9bngoqu7CSCs/fxukLr2XzLmgz9dta2caDdQIsxlyOg2CRNFuxUYvU5Fk7VGSf1breJfz1SD1uX/kbYFLB0AB++Xr/7sHTsuWZ0Fhz7vYys=",#这里是抓包后获取的博客园的加密账号
         self.log.info("输入正确账号：%s"%username)
         psw = "MphGAsMExHYs7k4dXgQKzKSl2Pou/MRfKRVEMaqjgaFmXDAzMtit4uUZSqEzFv4CEynLTSgrFhv7sc6K+PHUEOWucGKx/AgOYBO5fW4sYiU470BRRbJuYlIqZQjRq4UJf37jjjOVpiLYQV0K45BSH6jk370Z0e/cG5skWRIh380=",#这里是抓包后获取的博客园的加密密码
-        self.log.info("输入正确密码：%s"%psw )
+        #self.log.info("输入正确密码：%s"%psw )
         result = self.login(username, psw)
-        self.log.info("获取测试结果：%s"%result)
+        #self.log.info("获取测试结果：%s"%result)
         self.assertEqual(result["success"], True)
-        self.log.info("------pass!---------")
+       # self.log.info("------pass!---------")
 
     def test_login2(self):
         u'''测试登录：正确账号，错误密码'''

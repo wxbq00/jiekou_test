@@ -14,8 +14,15 @@ class Blog():
     def login(self):
         url = "https://passport.cnblogs.com/user/signin"
         headers = {
-            'Cookie': '__utma=226521935.941366269.1508751496.1508751496.1508751496.1; __utmz=226521935.1508751496.1.1.utmccn=(organic)|utmcsr=baidu|utmctr=|utmcmd=organic; __gads=ID=8019f9e6f4ec84a4:T=1509541344:S=ALNI_MaHsxheE6Nqp15k7DfgUGc45I0SMQ; UM_distinctid=15f80eaa2b73fe-03faa50a5ce9df-193e6d56-fa000-15f80eaa2b83d6; CNZZDATA1258637387=1850015044-1509693391-null%7C1509693391; CNZZDATA3347352=cnzz_eid%3D1352186815-1509957096-null%26ntime%3D1510903373; _ga=GA1.2.479464532.1501746521; _gid=GA1.2.1459045168.1515377290'
-            ,
+            # 'Cookie': {'__utma':'226521935.941366269.1508751496.1508751496.1508751496.1',
+            #            ' __utmz':'226521935.1508751496.1.1.utmccn=(organic)|utmcsr=baidu|utmctr=|utmcmd=organic',
+            #            ' __gads=ID=8019f9e6f4ec84a4:T=1509541344:S=ALNI_MaHsxheE6Nqp15k7DfgUGc45I0SMQ; '
+            #            'UM_distinctid=15f80eaa2b73fe-03faa50a5ce9df-193e6d56-fa000-15f80eaa2b83d6; '
+            #            'CNZZDATA1258637387=1850015044-1509693391-null%7C1509693391; '
+            #            'CNZZDATA3347352=cnzz_eid%3D1352186815-1509957096-null%26ntime%3D1510903373;'
+            #            ' _ga=GA1.2.479464532.1501746521; '
+            #            '_gid=GA1.2.1459045168.1515377290'
+            #            },
             'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.108 Safari/537.36'
             , "Accept-Encoding": "gzip, deflate, br",
             "Content-Type": "application/json; charset=utf-8",
@@ -33,8 +40,11 @@ class Blog():
 
         res = self.s.post(url, headers=headers, json=json_data, verify=False)
         result1 = res.content  # 字节输出
-        self.log.info(u"调用登录方法，获取结果：%s"%result1)
-        return res.json()
+        #self.log.info(u"调用登录方法，获取结果：%s"%result1)
+        result=res.json()
+
+        print(result['success'])
+        return result
 
     def save(self, title, body):
         url2 = "https://i.cnblogs.com/EditPosts.aspx?opt=1"
@@ -49,14 +59,14 @@ class Blog():
             "Editor$Edit$lkbDraft":"存为草稿",
              }
         r2 = self.s.post(url2, data=d, verify=False)  #保存草稿箱
-        self.log.info(u"调用保存草稿箱方法，获取结果：%s"%r2)
+        #self.log.info(u"调用保存草稿箱方法，获取结果：%s"%r2)
         return r2.url
 
     def get_postid(self, r2_url):
         # 正则表达式提取
         import re
         postid = re.findall(r"postid=(.+?)&", r2_url)  # 这里是list []
-        self.log.info(u"正则提取postid，获取结果：%s"%postid)
+        #self.log.info(u"正则提取postid，获取结果：%s"%postid)
         return postid[0]
 
     # def del_tie(self, postid):

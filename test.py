@@ -16,7 +16,7 @@ d={
     'browser_key':'38e3d6fccb087e472e5ede594d02bf8b',
     'referer':'https://coding.imooc.com'
 }
-s=requests.session()
+s=requests.session()#会话
 r=s.post(url,headers=headers,data=d)#传data参数
 # t=re.findall(r'<b>(.+?)</b>',r.content.decode())
 # print(t[0])
